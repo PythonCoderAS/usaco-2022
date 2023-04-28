@@ -9,7 +9,7 @@ prices = defaultdict(list)
 for num in numbers:
     counts[num] += 1
 current_excluded = 0
-for price, num_excluded in counts.items():
+for price, num_excluded in sorted(counts.items(), key=lambda item: item[0]):
     money_made = (n - current_excluded) * price
     prices[money_made].append(price)
     current_excluded += num_excluded
